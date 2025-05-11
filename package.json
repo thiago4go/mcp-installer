@@ -1,16 +1,29 @@
 {
-  "name": "@anaisbetts/mcp-installer",
-  "version": "0.5.0",
-  "bin": {
-    "mcp-installer": "./lib/index.mjs"
-  },
+  "name": "@thiago4go/mcp-installer",
+  "version": "0.0.1",
   "description": "A MCP server to install other MCP servers",
+  "keywords": [
+    "mcp-installer",
+    "mcp"
+  ],
+  "homepage": "https://github.com/thiago4go/mcp-installer#readme",
+  "bugs": {
+    "url": "https://github.com/thiago4go/mcp-installer/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thiago4go/mcp-installer.git"
+  },
+  "license": "MIT",
+  "author": "Ani Betts <anais@anaisbetts.org>",
+  "type": "commonjs",
   "main": "index.js",
+  "bin": {
+    "mcp-installer": "lib/index.mjs"
+  },
   "scripts": {
     "prepare": "tsc && shx chmod +x ./lib/index.mjs"
   },
-  "author": "Ani Betts <anais@anaisbetts.org>",
-  "license": "MIT",
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.0.1",
     "rimraf": "^6.0.1",

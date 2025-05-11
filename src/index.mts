@@ -107,28 +107,34 @@ async function isNpmPackage(name: string) {
   }
 }
 
+function getDesktopConfigPath(): string {
+  if (process.env.MCP_DESKTOP_CONFIG) {
+    return process.env.MCP_DESKTOP_CONFIG;
+  }
+  return process.platform === "win32"
+    ? path.join(
+        os.homedir(),
+        "AppData",
+        "Roaming",
+        "Claude",
+        "claude_desktop_config.json"
+      )
+    : path.join(
+        os.homedir(),
+        "Library",
+        "Application Support",
+        "Claude",
+        "claude_desktop_config.json"
+      );
+}
+
 function installToClaudeDesktop(
   name: string,
   cmd: string,
   args: string[],
   env?: string[]
 ) {
-  const configPath =
-    process.platform === "win32"
-      ? path.join(
-          os.homedir(),
-          "AppData",
-          "Roaming",
-          "Claude",
-          "claude_desktop_config.json"
-        )
-      : path.join(
-          os.homedir(),
-          "Library",
-          "Application Support",
-          "Claude",
-          "claude_desktop_config.json"
-        );
+  const configPath = getDesktopConfigPath();
 
   let config: any;
   try {
