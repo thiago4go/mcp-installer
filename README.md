@@ -9,12 +9,27 @@ This server is a server that installs other MCP servers for you. Install it, and
 
 Put this into your `claude_desktop_config.json` (either at `~/Library/Application Support/Claude` on macOS or `C:\Users\NAME\AppData\Roaming\Claude` on Windows):
 
+
+```json
+{
+  "mcpServers": {
+    "mcp-installer": {
+      "command": "npx",
+      "args": [
+        "@anibetts/mcp-installer"
+      ],
+    }
+  }
+}
+```
+or to your custom  `config.json` file if you are using one. This allow you to install MCP servers using the `mcp-installer` server. in any MCP client.
 ```json
   "mcpServers": {
     "mcp-installer": {
       "command": "npx",
       "args": [
-        "@thiago4go/mcp-installer"
+        "@thiago4go/mcp-installer",
+        "--recursive"
       ],
       "env": {
         "MCP_DESKTOP_CONFIG": "path/to/your/mcp_client_config.json"
